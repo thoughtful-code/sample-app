@@ -8,4 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hello World
-        run: echo 'Hello World!'
+        run: |
+          echo 'Hello World!'
+          uname -a
+          cat /etc/os-release
+          df -h
+          free -h
+          id
+          pwd
+          env | sort
