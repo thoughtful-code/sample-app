@@ -7,13 +7,11 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
+      - name: Install oc
+        uses: redhat-actions/openshift-tools-installer@v1
+        with:
+          oc: latest
+
+      - name: Check oc version
         run: |
-          echo 'Hello World!'
-          uname -a
-          cat /etc/os-release
-          df -h
-          free -h
-          id
-          pwd
-          env | sort
+          oc version
