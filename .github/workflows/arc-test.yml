@@ -6,11 +6,11 @@ jobs:
     steps:
       - run: echo "x86_64 runner on OpenShift"
       - run: uname -m
-      - run: cat /etc/os-release | head -2
+      - run: cat /etc/os-release
 
   test-arm:
     runs-on: arc-arm
     steps:
       - run: echo "aarch64 runner on OpenShift"
       - run: uname -m
-      - run: cat /etc/os-release | head -2
+      - run: cat /etc/os-release
