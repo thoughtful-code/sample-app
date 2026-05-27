@@ -14,3 +14,16 @@ jobs:
       - run: echo "aarch64 runner on OpenShift"
       - run: uname -m
       - run: cat /etc/os-release
+
+  test-buildah:
+    runs-on: arc-x86
+    env:
+      BUILDAH_ISOLATION: chroot
+      STORAGE_DRIVER: overlay
+    steps:
+      - name: Build a trivial image
+        run: |
+          echo 'FROM registry.access.redhat.com/ubi10/ubi-minimal
+          RUN echo "hello from buildah"' | buildah bud -t localhost/test-image -f - .
+      - name: Verify image exists
+        run: buildah images localhost/test-image
