@@ -1,0 +1,16 @@
+name: ARC test
+on: workflow_dispatch
+jobs:
+  test-x86:
+    runs-on: arc-x86
+    steps:
+      - run: echo "x86_64 runner on OpenShift"
+      - run: uname -m
+      - run: cat /etc/os-release
+
+  test-arm:
+    runs-on: arc-arm
+    steps:
+      - run: echo "aarch64 runner on OpenShift"
+      - run: uname -m
+      - run: cat /etc/os-release
