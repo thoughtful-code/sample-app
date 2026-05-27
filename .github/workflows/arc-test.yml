@@ -19,7 +19,7 @@ jobs:
     runs-on: arc-x86
     env:
       BUILDAH_ISOLATION: chroot
-      STORAGE_DRIVER: overlay
+      STORAGE_DRIVER: vfs
     steps:
       - name: Build a trivial image
         run: |
